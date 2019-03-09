@@ -1,5 +1,6 @@
 .Pipfile.swp
 .vscode
+__pycache__
 .pyc
 migrations/
 .DS_Store

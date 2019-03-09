@@ -9,6 +9,7 @@ pylint = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
+django-phone-field = "*"
 
 [requires]
 python_version = "3.7"
