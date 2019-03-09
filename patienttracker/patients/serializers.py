@@ -9,5 +9,5 @@ class PatientSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'middle_name', 'last_name',
          'date_of_birth', 'date_created', 'date_modified',
          'gender', 'email', 'phone',
-         'county', 'nhif')
+         'county', 'id_number')
         read_only_fields = ('date_created', 'date_modified')
