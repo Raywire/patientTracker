@@ -1,0 +1,6 @@
+.Pipfile.swp
+.vscode
+.pyc
+migrations/
+.DS_Store
+db.sqlite3
