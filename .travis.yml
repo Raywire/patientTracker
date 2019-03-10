@@ -1,9 +1,11 @@
 language: python
 python:
-  - '3.7.2'
+  - '3.7'
 install:
   - 'pip install pipenv'
   - 'pipenv install'
 services:
   - postgresql
+before_script:
+  - psql -c "CREATE DATABASE patienttracker;" -U postgres  
 script: 'python manage.py test'
