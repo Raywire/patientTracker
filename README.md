@@ -14,7 +14,7 @@ git clone the repo
 A postgres database is required one for development
 
 **Setting up the database with a user who has all privileges**
-```
+```sql
 sudo -u postgres psql
 postgres=# create database your-database;
 postgres=# create user your-username with encrypted password 'your-password';
