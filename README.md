@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Raywire/patientTracker.svg?branch=develop)](https://travis-ci.org/Raywire/patientTracker)
+
 **Project**: Patient Tracker
 
 

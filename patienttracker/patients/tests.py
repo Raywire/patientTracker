@@ -20,8 +20,20 @@ class ModelTestCase(TestCase):
             'email' : 'john@doe.com',
             'phone' : '0724724724',
             'county' : 'Nairobi',
-            'nhif' : '1234567890'
+            'id_number' : '1234567890'
         }
+        self.valid_payload_2 = {
+            'first_name' : 'John',
+            'middle_name' : 'Smith',
+            'last_name' : 'Doe',
+            'date_of_birth' : '2019-03-09',
+            'gender' : 'M',
+            'email' : 'john@doe.com',
+            'phone' : '0724724724',
+            'county' : 'Nairobi',
+            'id_number' : '12345678901'
+        }
+
         self.invalid_payload = {
             'first_name': '',
             'last_name' : 'Doe',
@@ -31,7 +43,7 @@ class ModelTestCase(TestCase):
             'email' : 'john@doe.com',
             'phone' : '0724724724',
             'county' : 'Nairobi',
-            'nhif' : '1234567890'
+            'id_number' : '1234567890'
         }
         client.post(
             "/api/v1/patients/",
@@ -51,7 +63,7 @@ class ModelTestCase(TestCase):
         """Test to check if a patient record is created with valid data"""
         response = client.post(
             "/api/v1/patients/",
-            data=json.dumps(self.valid_payload),
+            data=json.dumps(self.valid_payload_2),
             content_type='application/json'
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

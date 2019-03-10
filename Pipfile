@@ -10,6 +10,10 @@ pylint = "*"
 django = "*"
 djangorestframework = "*"
 django-phone-field = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+pytest = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.7"
