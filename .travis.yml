@@ -10,4 +10,4 @@ before_script:
   - psql -c "CREATE DATABASE patienttracker;" -U postgres  
 script: 
   - 'cd patienttracker/'
-  - 'python patienttracker/manage.py test'
+  - 'python manage.py test'
