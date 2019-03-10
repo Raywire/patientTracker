@@ -22,7 +22,7 @@ postgres=# grant all privileges on database your-database to your-username;
 ```
 ### Contents of .env file
 
-```
+```python
 DEBUG=True
 SECRET_KEY='your-secret-key-here'
 DATABASE_URL=psql://user:password@127.0.0.1:5432/database_name
