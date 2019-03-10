@@ -49,7 +49,7 @@ python manage.py runserver
 
 ## Running the tests
 
-```
+```python
 cd patienttracker/
 python manage.py test
 ```

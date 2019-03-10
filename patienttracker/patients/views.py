@@ -8,6 +8,7 @@ class CreateView(generics.ListCreateAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
 
-    def create_record(self, serializer):
+    @classmethod
+    def create_record(cls, serializer):
         """Save the post data when creating a new bucketlist."""
         serializer.save()
