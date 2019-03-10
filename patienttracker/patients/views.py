@@ -4,7 +4,7 @@ from .models import Patient
 
 
 class CreateView(generics.ListCreateAPIView):
-    """This class defines the create behavior of our rest api."""
+    """This class defines the method to create a patient record."""
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
 

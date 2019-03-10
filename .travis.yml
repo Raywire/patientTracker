@@ -8,4 +8,6 @@ services:
   - postgresql
 before_script:
   - psql -c "CREATE DATABASE patienttracker;" -U postgres  
-script: 'python manage.py test'
+script: 
+  - 'cd patienttracker/'
+  - 'python patienttracker/manage.py test'
