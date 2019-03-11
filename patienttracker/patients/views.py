@@ -10,5 +10,10 @@ class CreateView(generics.ListCreateAPIView):
 
     @classmethod
     def create_record(cls, serializer):
-        """Save the post data when creating a new bucketlist."""
+        """Save the post data when creating a new patient."""
         serializer.save()
+
+class DetailsView(generics.RetrieveAPIView):
+    """This class defines the method to retrieve a single patient record"""
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
