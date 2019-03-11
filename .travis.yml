@@ -1,0 +1,13 @@
+language: python
+python:
+  - '3.6'
+install:
+  - 'pip install pipenv'
+  - 'pipenv install'
+services:
+  - postgresql
+before_script:
+  - psql -c "CREATE DATABASE patienttracker;" -U postgres  
+script: 
+  - 'cd patienttracker/'
+  - 'python manage.py test'
