@@ -12,14 +12,18 @@ git clone the repo
 
 ### Prerequisites
 
-A postgres database is required one for development
+A postgres database is required for development
+Install pipenv using Homebrew, Linuxbrew or pip
+```shell
+brew install pipenv
+```
 
 **Setting up the database with a user who has all privileges**
 ```sql
 sudo -u postgres psql
-postgres=# create database your-database;
-postgres=# create user your-username with encrypted password 'your-password';
-postgres=# grant all privileges on database your-database to your-username;
+postgres=# create database your_database;
+postgres=# create user your_username with encrypted password 'your_password';
+postgres=# grant all privileges on database your_database to your_username;
 ```
 ### Contents of .env file
 
@@ -33,16 +37,17 @@ cd into the patienttracker folder
 ```python
 cd patienttracker/
 ```
-To activate the virtual environment run the command below
 
-```python
-pipenv shell
-```
 Run the command to install all requirements from Pipfile.lock
-
 ```python
 pipenv install
 ```
+
+To activate the virtual environment run the command below
+```python
+pipenv shell
+```
+
 Run the application by starting the server
 ```python
 python manage.py runserver
@@ -54,20 +59,33 @@ python manage.py runserver
 cd patienttracker/
 python manage.py test
 ```
+Running tests with coverage
+```python
+cd patienttracker/
+coverage run --source="." manage.py test
+coverage report
+```
 
 ## Built With
 
 *   [Django Rest Framework](https://www.django-rest-framework.org/) - Django
 
 ## API Endpoints
+```shell
+POST /api/v1/patients
 
-versioning for the endpoints
-/api/v1/
+GET /api/v1/patients
 
+GET /api/v1/patients/<id>
+
+PUT /api/v1/patients/<id>
+
+DELETE /api/v1/patients<id>
+```
 ## Author
 
 *   **Ryan Simiyu** 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
