@@ -13,6 +13,7 @@ django-phone-field = "*"
 pytest = "*"
 django-environ = "*"
 psycopg2-binary = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.7"

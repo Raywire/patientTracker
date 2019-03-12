@@ -91,3 +91,12 @@ class ModelTestCase(TestCase):
             reverse('details',
             kwargs={'pk': 20}), format="json")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_to_update_patient_record(self):
+        """Test to update a patient record."""
+        patients = Patient.objects.get()
+        res = self.client.put(
+            reverse('details', kwargs={'pk': patients.id}),
+            data=json.dumps(self.valid_payload_2) ,content_type='application/json'
+        )
+        self.assertEqual(res.status_code, status.HTTP_200_OK)

@@ -10,4 +10,7 @@ before_script:
   - psql -c "CREATE DATABASE patienttracker;" -U postgres  
 script: 
   - 'cd patienttracker/'
-  - 'python manage.py test'
+  - 'coverage run --source="." manage.py test'
+  - 'coverage report'
+after_success:
+  - coveralls

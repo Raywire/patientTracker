@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Raywire/patientTracker.svg?branch=develop)](https://travis-ci.org/Raywire/patientTracker)
+[![Coverage Status](https://coveralls.io/repos/github/Raywire/patientTracker/badge.svg?branch=develop)](https://coveralls.io/github/Raywire/patientTracker?branch=develop)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/57a5176fa85f42a7be59cf53dc0d1a4c)](https://www.codacy.com/app/Raywire/patientTracker?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Raywire/patientTracker&amp;utm_campaign=Badge_Grade)
 
 **Project**: Patient Tracker
