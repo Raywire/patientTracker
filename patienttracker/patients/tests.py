@@ -100,3 +100,18 @@ class ModelTestCase(TestCase):
             data=json.dumps(self.valid_payload_2) ,content_type='application/json'
         )
         self.assertEqual(res.status_code, status.HTTP_200_OK)
+
+    def test_to_delete_a_specific_patient_record(self):
+        """Test to check if a specific patient record can be deleted."""
+        patients = Patient.objects.get()
+        response = self.client.delete(
+            reverse('details',
+            kwargs={'pk': patients.pk}), format="json")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_to_delete_a_nonexistent_patient_record(self):
+        """Test to check if a nonexistent patient record can be deleted."""
+        response = self.client.delete(
+            reverse('details',
+            kwargs={'pk': 20}), format="json")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

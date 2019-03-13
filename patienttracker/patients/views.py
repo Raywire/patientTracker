@@ -13,7 +13,7 @@ class CreateView(generics.ListCreateAPIView):
         """Save the post data when creating a new patient."""
         serializer.save()
 
-class DetailsView(generics.RetrieveUpdateAPIView):
+class DetailsView(generics.RetrieveUpdateDestroyAPIView):
     """This class defines the method to retrieve a single patient record"""
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
