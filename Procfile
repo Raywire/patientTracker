@@ -1,1 +1,1 @@
-web: gunicorn patienttracker/patienttracker.wsgi
+web: gunicorn --pythonpath patienttracker patienttracker.wsgi
