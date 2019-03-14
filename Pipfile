@@ -15,6 +15,7 @@ django-environ = "*"
 psycopg2-binary = "*"
 coverage = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
