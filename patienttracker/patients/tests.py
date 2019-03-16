@@ -67,7 +67,7 @@ class ModelTestCase(TestCase):
             "date_time": "",
             "patient": 3
         }
-        
+
         client.post(
             "/api/v1/patients/",
             data=json.dumps(self.valid_payload),

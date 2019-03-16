@@ -16,6 +16,7 @@ psycopg2-binary = "*"
 coverage = "*"
 gunicorn = "*"
 whitenoise = "*"
+drf-extensions = "*"
 
 [requires]
 python_version = "3.7"
