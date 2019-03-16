@@ -1,19 +1,11 @@
-from rest_framework import generics
-from .serializers import PatientSerializer
-from .models import Patient
+from rest_framework.viewsets import ModelViewSet
+from .serializers import PatientSerializer, AppointmentSerializer
+from .models import Patient, Appointment
 
-
-class CreateView(generics.ListCreateAPIView):
-    """This class defines the method to create a patient record."""
-    queryset = Patient.objects.all()
+class PatientViewSet(ModelViewSet):
     serializer_class = PatientSerializer
-
-    @classmethod
-    def create_record(cls, serializer):
-        """Save the post data when creating a new patient."""
-        serializer.save()
-
-class DetailsView(generics.RetrieveUpdateDestroyAPIView):
-    """This class defines the method to retrieve a single patient record"""
     queryset = Patient.objects.all()
-    serializer_class = PatientSerializer
+
+class AppointmentViewSet(ModelViewSet):
+    serializer_class = AppointmentSerializer
+    queryset = Appointment.objects.all()

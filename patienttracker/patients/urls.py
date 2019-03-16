@@ -1,11 +1,12 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
-from .views import CreateView, DetailsView
+from rest_framework.routers import DefaultRouter
+from patients.views import PatientViewSet, AppointmentViewSet
+from django.urls import path, include
 
-urlpatterns = {
-    url(r'^api/v1/patients/$', CreateView.as_view(), name="create"),
-    url(r'^api/v1/patients/(?P<pk>[0-9]+)/$',
-     DetailsView.as_view(), name="details"),
-}
+router = DefaultRouter()
+ 
+router.register('api/v1/patients', PatientViewSet)
+router.register('api/v1/appointments', AppointmentViewSet)
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = [
+    path('', include(router.urls))
+]
