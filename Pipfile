@@ -17,6 +17,7 @@ coverage = "*"
 gunicorn = "*"
 whitenoise = "*"
 drf-extensions = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
