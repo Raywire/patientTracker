@@ -1,11 +1,15 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
-from .views import CreateView, DetailsView
+from patients.views import PatientViewSet, AppointmentViewSet
+from django.urls import path, include
+from rest_framework_extensions.routers import ExtendedSimpleRouter
 
-urlpatterns = {
-    url(r'^api/v1/patients/$', CreateView.as_view(), name="create"),
-    url(r'^api/v1/patients/(?P<pk>[0-9]+)/$',
-     DetailsView.as_view(), name="details"),
-}
+router = ExtendedSimpleRouter()
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+patients_router = router.register('api/v1/patients', PatientViewSet)
+patients_router.register(
+    'appointments', AppointmentViewSet,
+    base_name='patient-appointments',
+    parents_query_lookups=['patient'])
+
+urlpatterns = [
+    path('', include(router.urls))
+]

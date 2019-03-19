@@ -23,3 +23,14 @@ class Patient(models.Model):
         name = self.first_name + ' ' + self.middle_name + ' ' + self.last_name
         return name
 
+class Appointment(models.Model):
+    title = models.CharField(max_length=30, blank=False)
+    attendant = models.CharField(max_length=60, blank=False)
+    description = models.CharField(max_length=500, blank=True)
+    date_time = models.DateTimeField(blank=False, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

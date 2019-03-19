@@ -2,7 +2,6 @@
 .vscode
 __pycache__
 .pyc
-migrations/
 .DS_Store
 db.sqlite3
 .env

@@ -59,6 +59,12 @@ python manage.py runserver
 cd patienttracker/
 python manage.py test
 ```
+In case you do not have permission to create a database run the following command on psql
+```sql
+sudo -u postgres psql
+ALTER ROLE your_username CREATEDB;
+```
+
 Running tests with coverage
 ```python
 cd patienttracker/

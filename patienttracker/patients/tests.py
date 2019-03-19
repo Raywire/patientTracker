@@ -45,6 +45,29 @@ class ModelTestCase(TestCase):
             'county' : 'Nairobi',
             'id_number' : '1234567890'
         }
+        self.valid_payload_appointment = {
+            "title": "Eye Test",
+            "attendant": "Doctor Doe",
+            "description": "",
+            "date_time": "2019-03-15T12:43",
+            "patient": 3
+        }
+        self.valid_payload_2_appointment = {
+            "title": "Eye Test",
+            "attendant": "Doctor Doe",
+            "description": "",
+            "date_time": "2019-03-15T12:43",
+            "patient": 3
+        }
+
+        self.invalid_payload_appointment = {
+            "title": "Eye Test",
+            "attendant": "Doctor Doe",
+            "description": "",
+            "date_time": "",
+            "patient": 3
+        }
+
         client.post(
             "/api/v1/patients/",
             data=json.dumps(self.valid_payload),
@@ -81,14 +104,14 @@ class ModelTestCase(TestCase):
         """Test to check if a specific patient record can be retrieved."""
         patients = Patient.objects.get()
         response = self.client.get(
-            reverse('details',
+            reverse('patient-detail',
             kwargs={'pk': patients.pk}), format="json")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_a_nonexistent_patient_record(self):
         """Test to check if a nonexistent patient record can be retrieved."""
         response = self.client.get(
-            reverse('details',
+            reverse('patient-detail',
             kwargs={'pk': 20}), format="json")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
@@ -96,7 +119,7 @@ class ModelTestCase(TestCase):
         """Test to update a patient record."""
         patients = Patient.objects.get()
         res = self.client.put(
-            reverse('details', kwargs={'pk': patients.id}),
+            reverse('patient-detail', kwargs={'pk': patients.id}),
             data=json.dumps(self.valid_payload_2) ,content_type='application/json'
         )
         self.assertEqual(res.status_code, status.HTTP_200_OK)
@@ -105,13 +128,13 @@ class ModelTestCase(TestCase):
         """Test to check if a specific patient record can be deleted."""
         patients = Patient.objects.get()
         response = self.client.delete(
-            reverse('details',
+            reverse('patient-detail',
             kwargs={'pk': patients.pk}), format="json")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_to_delete_a_nonexistent_patient_record(self):
         """Test to check if a nonexistent patient record can be deleted."""
         response = self.client.delete(
-            reverse('details',
+            reverse('patient-detail',
             kwargs={'pk': 20}), format="json")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
