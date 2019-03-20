@@ -76,18 +76,9 @@ coverage report
 
 *   [Django Rest Framework](https://www.django-rest-framework.org/) - Django
 
-## API Endpoints
-```shell
-POST /api/v1/patients
+## API Endpoints Documentation
+[API Documentation](https://serene-brook-70330.herokuapp.com/) - Swagger UI
 
-GET /api/v1/patients
-
-GET /api/v1/patients/<id>
-
-PUT /api/v1/patients/<id>
-
-DELETE /api/v1/patients<id>
-```
 ## Author
 
 *   **Ryan Simiyu** 
