@@ -22,5 +22,7 @@ schema_view = get_swagger_view(title='Patient Tracker API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('patients.urls')),
+    path('', include('users.urls')),
+    path('auth/', include('rest_framework.urls')),
     path('', schema_view)
 ]
