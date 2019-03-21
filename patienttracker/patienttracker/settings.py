@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'patients',
+    'users',
     'rest_framework_swagger',
 ]
 
