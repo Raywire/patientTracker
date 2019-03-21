@@ -121,7 +121,6 @@ class ModelTestCase(TestCase):
 
     def test_to_update_patient_record(self):
         """Test to update a patient record."""
-        self.client.login(username='ryanwire', password='pt121212')
         patients = Patient.objects.get()
         res = self.client.put(
             reverse('patient-detail', kwargs={'pk': patients.id}),
@@ -131,7 +130,7 @@ class ModelTestCase(TestCase):
 
     def test_to_delete_a_specific_patient_record(self):
         """Test to check if a specific patient record can be deleted."""
-        
+
         patients = Patient.objects.get()
         response = self.client.delete(
             reverse('patient-detail',
