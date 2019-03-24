@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
+from rest_framework_simplejwt import views as jwt_views
 
 schema_view = get_swagger_view(title='Patient Tracker API')
 
@@ -24,5 +25,7 @@ urlpatterns = [
     path('', include('patients.urls')),
     path('', include('users.urls')),
     path('auth/', include('rest_framework.urls')),
-    path('', schema_view)
+    path('', schema_view),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
