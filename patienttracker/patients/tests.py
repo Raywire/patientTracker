@@ -14,6 +14,7 @@ class ModelTestCase(TestCase):
         self.my_admin = User.objects.create(username='user')
         self.client = APIClient()
         user = User.objects.get()
+        self.client.force_authenticate(user=self.my_admin)
 
         self.valid_payload = {
             'first_name' : 'John',

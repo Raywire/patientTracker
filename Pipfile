@@ -19,6 +19,7 @@ whitenoise = "*"
 drf-extensions = "*"
 django-cors-headers = "*"
 django-rest-swagger = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.7"
